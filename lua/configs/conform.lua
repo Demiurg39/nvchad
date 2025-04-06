@@ -1,15 +1,18 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    -- css = { "prettier" },
-    -- html = { "prettier" },
+    _ = {
+      "squeeze_blanks",
+      "trim_whitespace",
+      "trim_newlines",
+    },
   },
 
-  -- format_on_save = {
-  --   -- These options will be passed to conform.format()
-  --   timeout_ms = 500,
-  --   lsp_fallback = true,
-  -- },
+  formatters = {
+    squeeze_blanks = {
+      command = "cat",
+    },
+  },
 }
 
 return options
