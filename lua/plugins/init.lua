@@ -33,4 +33,9 @@ return {
       return require "configs.telescope"(conf)
     end,
   },
+
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+  },
 }
