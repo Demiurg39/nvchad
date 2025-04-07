@@ -11,11 +11,6 @@ end
 
 -- Normal mode
 
-map("n", "<C-h>", "<C-w>h", opts "window: window switch left")
-map("n", "<C-j>", "<C-w>j", opts "window: window switch down")
-map("n", "<C-k>", "<C-w>k", opts "window: window switch up")
-map("n", "<C-l>", "<C-w>l", opts "window: window switch right")
-
 map("n", "<leader>|", "<cmd>vsplit<CR>", opts "window: split vertically")
 map("n", "<leader>\\", "<cmd>split<CR>", opts "window: split horizontally")
 

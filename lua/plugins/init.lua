@@ -18,4 +18,9 @@ return {
     event = { "BufRead", "BufNewFile" },
     opts = require "configs.treesitter",
   },
+
+  {
+    "mrjones2014/smart-splits.nvim",
+    keys = require "configs.smart-splits",
+  },
 }
