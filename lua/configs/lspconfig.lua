@@ -24,8 +24,20 @@ local servers = {
       "--fallback-style=llvm",
     },
   },
+  nil_ls = {
+    settings = {
+      ["nix"] = {
+        formatting = { command = "nixfmt" },
+        nix = {
+          binary = "/run/current-system/sw/bin/nix",
+        },
+        flake = {
+          autoEvalInputs = true,
+        },
+      },
+    },
+  },
   jdtls = {},
-  nil_ls = {},
 }
 
 -- lsps with default config
