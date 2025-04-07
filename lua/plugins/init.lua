@@ -15,12 +15,16 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufRead", "BufNewFile" },
     opts = require "configs.treesitter",
   },
 
   {
     "mrjones2014/smart-splits.nvim",
     keys = require "configs.smart-splits",
+  },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    -- opts = require "configs.telescope"
   },
 }
