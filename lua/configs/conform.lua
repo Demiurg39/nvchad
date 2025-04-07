@@ -1,6 +1,9 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
+    nix = { "alejandra" },
+    c = { "clang_format" },
+    cpp = { "clang_format" },
     _ = {
       "squeeze_blanks",
       "trim_whitespace",
@@ -8,9 +11,16 @@ local options = {
     },
   },
 
+  lsp_format = "fallback",
+
   formatters = {
     squeeze_blanks = {
       command = "cat",
+    },
+    clang_format = {
+      prepend_args = {
+        "-style={BasedOnStyle: LLVM, IndentWidth: 4}",
+      },
     },
   },
 }
