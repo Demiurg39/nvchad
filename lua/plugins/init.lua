@@ -25,6 +25,12 @@ return {
 
   {
     "nvim-telescope/telescope.nvim",
-    -- opts = require "configs.telescope"
+    dependencies = {
+      "debugloop/telescope-undo.nvim",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    },
+    config = function(_, conf)
+      return require "configs.telescope"(conf)
+    end,
   },
 }
