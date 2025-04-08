@@ -1,4 +1,19 @@
-local opts = {
+local M = {}
+
+M.init = function()
+  vim.api.nvim_create_autocmd("BufReadPre", {
+    once = true,
+    callback = function()
+      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+        callback = function()
+          require("lazy").load { plugins = { "hlchunk.nvim" } }
+        end,
+      })
+    end,
+  })
+end
+
+M.opts = {
   chunk = {
     enable = true,
     use_treesitter = true,
@@ -17,4 +32,4 @@ local opts = {
   },
 }
 
-return opts
+return M

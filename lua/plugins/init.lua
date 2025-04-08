@@ -42,7 +42,7 @@ return {
 
   {
     "kylechui/nvim-surround",
-    event = "VeryLazy",
+    event = "BufReadPre",
     opts = {},
   },
 
@@ -70,9 +70,9 @@ return {
 
   {
     "shellRaining/hlchunk.nvim",
-    event = { "CursorHold", "CursorHoldI" },
+    init = require("configs.hlchunk").init(),
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = require "configs.hlchunk",
+    opts = require("configs.hlchunk").opts,
   },
 
   {
@@ -83,7 +83,7 @@ return {
 
   {
     "kevinhwang91/nvim-ufo",
-    event = "VeryLazy",
+    event = "BufReadPre",
     dependencies = { "kevinhwang91/promise-async" },
     config = function()
       require "configs.ufo"
