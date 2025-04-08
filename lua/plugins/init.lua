@@ -63,5 +63,15 @@ return {
     opts = {},
   },
 
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    enabled = false,
+  },
 
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "CursorHold", "CursorHoldI" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = require "configs.hlchunk",
+  },
 }
