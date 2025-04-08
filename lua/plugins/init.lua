@@ -43,4 +43,14 @@ return {
     "kylechui/nvim-surround",
     event = "VeryLazy",
   },
+
+  {
+    "folke/noice.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    event = "VeryLazy",
+    opts = require "configs.noice",
+  },
 }
