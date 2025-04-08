@@ -16,6 +16,7 @@ return {
   {
     "jmbuhr/otter.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = {},
   },
 
   {
@@ -42,6 +43,7 @@ return {
   {
     "kylechui/nvim-surround",
     event = "VeryLazy",
+    opts = {},
   },
 
   {
@@ -53,4 +55,13 @@ return {
     event = "VeryLazy",
     opts = require "configs.noice",
   },
+
+  {
+    "folke/todo-comments.nvim",
+    event = "BufReadPost",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+
+
 }
