@@ -14,6 +14,11 @@ return {
   },
 
   {
+    "jmbuhr/otter.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = require "configs.treesitter",
   },
