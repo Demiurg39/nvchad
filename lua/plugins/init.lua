@@ -89,4 +89,11 @@ return {
       require "configs.ufo"
     end,
   },
+
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    keys = require("configs.flash").keys,
+    opts = require("configs.flash").opts,
+  },
 }
