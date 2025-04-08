@@ -96,4 +96,10 @@ return {
     keys = require("configs.flash").keys,
     opts = require("configs.flash").opts,
   },
+
+  {
+    "catgoose/nvim-colorizer.lua",
+    event = "BufReadPre",
+    opts = { user_default_options = { mode = "virtualtext", virtualtext = "󱓻 " } },
+  },
 }

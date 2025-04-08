@@ -57,6 +57,10 @@ M.ui = {
         theme = "minimal",
         separator_style = "block",
     },
+
+   colorify = {
+     enabled = false,
+   },
 }
 
 return M
