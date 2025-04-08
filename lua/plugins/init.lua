@@ -74,4 +74,10 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = require "configs.hlchunk",
   },
+
+  {
+    "nmac427/guess-indent.nvim",
+    event = "BufReadPre",
+    opts = {},
+  },
 }
