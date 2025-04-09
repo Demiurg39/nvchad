@@ -102,4 +102,12 @@ return {
     event = "BufReadPre",
     opts = { user_default_options = { mode = "virtualtext", virtualtext = "󱓻 " } },
   },
+
+  {
+    "y3owk1n/undo-glow.nvim",
+    init = require("configs.undo-glow").init(),
+    event = { "VeryLazy" },
+    keys = require("configs.undo-glow").keys,
+    opts = require("configs.undo-glow").opts,
+  },
 }
