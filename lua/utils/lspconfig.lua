@@ -15,7 +15,7 @@ M.on_attach = function(_, bufnr)
   map("n", "K", vim.lsp.buf.hover, opts "Hover Documentation")
   map("n", "<C-k>", vim.lsp.buf.signature_help, opts "Signature Help")
 
-  map("n", "<leader>ca", vim.lsp.buf.code_action, opts "Code Action")
+  map("n", "<leader>ca", require("actions-preview").code_actions, opts "Code Action")
 
   map("n", "<leader>lr", require "nvchad.lsp.renamer", opts "NvRenamer")
 
