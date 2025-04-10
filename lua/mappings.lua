@@ -66,7 +66,6 @@ map("n", "<leader><tab>i", "<cmd>tabn<cr>", opts "Tab: Next Tab")
 map("n", "<leader><tab>m", "<cmd>tabp<cr>", opts "Tab: Previous Tab")
 map("n", "<leader><tab>n", "<cmd>tabnew<cr>", opts "Tab: new Tab")
 
-map("n", "<leader>lr", "<cmd>lua require 'nvchad.lsp.renamer'() <cr>", opts "LSP: rename variable under cursor")
 map("n", "<leader>lf", "<cmd>lua require('conform').format { lsp_fallback = true } <cr>", opts "buffer: format file")
 
 -- Visual mode

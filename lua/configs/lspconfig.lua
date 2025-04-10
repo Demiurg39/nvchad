@@ -1,8 +1,8 @@
--- load defaults i.e lua_lsp
-require("nvchad.configs.lspconfig").defaults()
-
-local nvlsp = require "nvchad.configs.lspconfig"
+local nvlsp = require "utils.lspconfig"
 local lspconfig = require "lspconfig"
+
+-- load defaults i.e lua_lsp
+nvlsp.defaults()
 
 local servers = {
   clangd = {
@@ -48,11 +48,3 @@ for name, opts in pairs(servers) do
 
   lspconfig[name].setup(opts)
 end
-
-lspconfig.opts = {
-  servers = {
-    clangd = {
-      mason = false,
-    },
-  },
-}
