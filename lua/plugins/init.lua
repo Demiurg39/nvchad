@@ -132,4 +132,9 @@ return {
     keys = require("configs.snacks").keys,
     opts = require("configs.snacks").opts,
   },
+
+  {
+    "aznhe21/actions-preview.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+  },
 }
