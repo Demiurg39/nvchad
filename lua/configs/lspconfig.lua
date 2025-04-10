@@ -45,7 +45,6 @@ local servers = {
       },
     },
   },
-  jdtls = {},
 }
 
 -- lsps with default config

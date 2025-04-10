@@ -137,4 +137,9 @@ return {
     "aznhe21/actions-preview.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
   },
+
+  {
+    "mfussenegger/nvim-jdtls",
+    dependencies = { "neovim/nvim-lspconfig" },
+  },
 }

@@ -4,6 +4,7 @@ local options = {
     nix = { "alejandra" },
     c = { "clang_format" },
     cpp = { "clang_format" },
+    java = { "clang_format" },
     _ = {
       "squeeze_blanks",
       "trim_whitespace",
