@@ -2,7 +2,7 @@ local M = {}
 
 M.keys = {
   {
-    "gs",
+    "gw",
     mode = { "n", "x", "o" },
     function()
       local Flash = require "flash"
