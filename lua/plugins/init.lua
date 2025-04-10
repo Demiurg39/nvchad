@@ -110,4 +110,18 @@ return {
     keys = require("configs.undo-glow").keys,
     opts = require("configs.undo-glow").opts,
   },
+
+  {
+    "coffebar/neovim-project",
+    lazy = false,
+    priority = 100,
+    init = require("configs.neovim-projects").init(),
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope.nvim" },
+      { "Shatur/neovim-session-manager" },
+    },
+    keys = require("configs.neovim-projects").keys,
+    opts = require("configs.neovim-projects").opts,
+  },
 }
