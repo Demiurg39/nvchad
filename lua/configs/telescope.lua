@@ -50,9 +50,9 @@ return function(conf)
   -- NOTE: search
   map("n", "<leader>su", "<cmd>Telescope undo<cr>", opts "Undo tree")
   map("n", "<leader>sh", "<cmd>Telescope help_tags<cr>", opts "Telescope: help page")
-  map("n", "<leader>sm", "<cmd>Telescope man_pages<cr>", opts "Telescope: help page")
+  map("n", "<leader>sm", "<cmd>Telescope man_pages<cr>", opts "Telescope: man pages")
   map("n", "<leader>s/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts "Telescope: search in current buffer")
-  map("n", "<leader>s/", "<cmd>Telescope commands<cr>", opts "Telescope: search for commands")
+  map("n", "<leader>s:", "<cmd>Telescope commands<cr>", opts "Telescope: search for commands")
   map("n", "<leader>st", "<cmd>lua require('nvchad.themes').open() <cr>", opts "Telescope: nvchad themes")
 
   -- NOTE: etc
