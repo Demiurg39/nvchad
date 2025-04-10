@@ -24,15 +24,23 @@ local servers = {
       "--fallback-style=llvm",
     },
   },
-  nil_ls = {
+  nixd = {
+    cmd = { "nixd" },
+
     settings = {
-      ["nix"] = {
-        formatting = { command = "nixfmt" },
-        nix = {
-          binary = "/run/current-system/sw/bin/nix",
+      inlay_hints = true,
+      nixpkgs = {
+        expr = "import <nixpkgs> { }",
+      },
+      formatting = {
+        command = { "nixfmt" },
+      },
+      options = {
+        nixos = {
+          expr = '(builtins.getFlake (builtins.getEnv "FLAKE")).nixosConfigurations.asura.options',
         },
-        flake = {
-          autoEvalInputs = true,
+        home_manager = {
+          expr = '(builtins.getFlake (builtins.getEnv "FLAKE")).nixosConfigurations.asura.options.home-manager.users.value.demi',
         },
       },
     },
