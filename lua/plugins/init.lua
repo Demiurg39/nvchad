@@ -124,4 +124,12 @@ return {
     keys = require("configs.neovim-projects").keys,
     opts = require("configs.neovim-projects").opts,
   },
+
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    keys = require("configs.snacks").keys,
+    opts = require("configs.snacks").opts,
+  },
 }

@@ -5,12 +5,8 @@ local opts = {
     signature = { enabled = false },
     progress = { enabled = false },
   },
-  routes = {
-    {
-      filter = { event = "msg_showmode" },
-      view = "cmdline",
-    },
-  },
+  notify = { enabled = false },
+  messages = { enabled = false },
 }
 
 return opts
