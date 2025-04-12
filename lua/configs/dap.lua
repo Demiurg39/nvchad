@@ -1,6 +1,7 @@
 local M = {}
 
 M.config = function()
+  dofile(vim.g.base46_cache .. "dap")
   local dap = require "dap"
   local dapui = require "dapui"
 

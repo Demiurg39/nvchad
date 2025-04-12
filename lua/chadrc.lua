@@ -7,6 +7,11 @@ local M = {}
 
 M.base46 = {
   theme = "rosepine",
+  integrations = {
+    "dap",
+    "flash",
+    "todo",
+  },
 
   -- hl_override = {
   -- 	Comment = { italic = true },

@@ -1,5 +1,9 @@
 local M = {}
 
+M.init = function()
+  dofile(vim.g.base46_cache .. "flash")
+end
+
 M.keys = {
   {
     "gw",

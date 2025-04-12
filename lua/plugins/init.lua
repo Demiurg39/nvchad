@@ -58,6 +58,9 @@ return {
 
   {
     "folke/todo-comments.nvim",
+    init = function()
+      dofile(vim.g.base46_cache .. "todo")
+    end,
     event = "BufReadPost",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
@@ -92,6 +95,7 @@ return {
 
   {
     "folke/flash.nvim",
+    init = require("configs.flash").init,
     event = "VeryLazy",
     keys = require("configs.flash").keys,
     opts = require("configs.flash").opts,
@@ -105,7 +109,7 @@ return {
 
   {
     "y3owk1n/undo-glow.nvim",
-    init = require("configs.undo-glow").init(),
+    init = require("configs.undo-glow").init,
     event = { "VeryLazy" },
     keys = require("configs.undo-glow").keys,
     opts = require("configs.undo-glow").opts,
