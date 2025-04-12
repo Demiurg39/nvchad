@@ -1,4 +1,4 @@
--- Mappings
+-- NOTE: Mappings
 
 local map = vim.keymap.set
 local tabline = require "nvchad.tabufline"
@@ -7,12 +7,12 @@ local function opts(desc)
   return { desc = desc, noremap = true, silent = true }
 end
 
--- Normal mode
+-- NOTE: Normal mode
 
 map("n", "<leader>|", "<cmd>vsplit<cr>", opts "window: split vertically")
 map("n", "<leader>\\", "<cmd>split<cr>", opts "window: split horizontally")
 
--- tabufline
+-- NOTE: tabufline
 map("n", "<A-i>", function()
   tabline.next()
 end, opts "buffer: next buffer")
@@ -62,15 +62,19 @@ map("n", "<Esc>", "<cmd>noh<cr>", opts "General Clear highlights")
 
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", opts "nvim-tree: toggle window")
 
-map("n", "<leader><tab>i", "<cmd>tabn<cr>", opts "Tab: Next Tab")
-map("n", "<leader><tab>m", "<cmd>tabp<cr>", opts "Tab: Previous Tab")
-map("n", "<leader><tab>n", "<cmd>tabnew<cr>", opts "Tab: new Tab")
+map("n", "<C-A-i>", "<cmd>tabn<cr>", opts "Tab: Next Tab")
+map("n", "<C-A-m>", "<cmd>tabp<cr>", opts "Tab: Previous Tab")
+map("n", "<C-A-n>", "<cmd>tabnew<cr>", opts "Tab: New Tab")
 
-map("n", "<leader>lf", "<cmd>lua require('conform').format { lsp_fallback = true } <cr>", opts "buffer: format file")
+map("n", "<leader>lf", "<cmd>lua require('conform').format { lsp_fallback = true } <cr>", opts "LSP: Format file")
 
--- Visual mode
+-- NOTE: Visual mode
 
 map("v", "<", "<gv", opts "indent: increment")
 map("v", ">", ">gv", opts "indent: decrement")
 map("v", "<A-j>", ":m '>+1<cr>gv=gv", opts "move line down")
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", opts "move line up")
+
+-- NOTE: Term
+
+-- map ()
