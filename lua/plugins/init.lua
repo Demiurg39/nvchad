@@ -157,4 +157,28 @@ return {
     ft = "lua",
     opts = require "configs.lazydev",
   },
+
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    keys = require("configs.neotest").keys,
+    opts = require("configs.neotest").opts,
+  },
+
+  {
+    "rcasia/neotest-java",
+    ft = "java",
+    cmd = "NeotestJava",
+    dependencies = {
+      "mfussenegger/nvim-jdtls",
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
+    },
+  },
 }

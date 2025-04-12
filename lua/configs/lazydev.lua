@@ -9,6 +9,8 @@ M.opts = {
     "lazy.nvim",
     "nvim-dap-ui",
     "nvim-dap",
+    "neotest",
+    "neotest-java"
   },
 }
 
