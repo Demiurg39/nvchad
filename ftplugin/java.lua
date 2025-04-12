@@ -1,4 +1,4 @@
-local mason = vim.fn.expand "$XDG_DATA_HOME" .. "/nvim/mason/packages"
+local mason = vim.fn.stdpath "data" .. "/mason/packages"
 
 local jdtls = mason .. "/jdtls"
 local java_dap_bin = mason
@@ -34,7 +34,7 @@ local config = {
     workspace_dir,
     -- root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
     root_dir = require("jdtls.setup").find_root { ".git", "mvnw", "gradlew" },
-  }
+  },
 }
 
 local bundles = {
