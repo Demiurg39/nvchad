@@ -63,4 +63,14 @@ M.ui = {
   },
 }
 
+M.mason = {
+  command = true,
+  pkgs = {
+    -- NOTE: Java lsp & dap
+    "java-debug-adapter",
+    "java-test",
+    "jdtls",
+  },
+}
+
 return M

@@ -142,4 +142,13 @@ return {
     "mfussenegger/nvim-jdtls",
     dependencies = { "neovim/nvim-lspconfig" },
   },
+
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      { "mfussenegger/nvim-dap", dependencies = { "neovim/nvim-lspconfig" } },
+      "nvim-neotest/nvim-nio",
+    },
+    config = require("configs.dap").config,
+  },
 }
