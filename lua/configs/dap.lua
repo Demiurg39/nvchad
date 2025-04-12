@@ -3,47 +3,42 @@ local M = {}
 M.config = function()
   local dap = require "dap"
   local dapui = require "dapui"
-  dap.adapters.gdb = {
+
+  local mason = vim.fn.expand "$XDG_DATA_HOME" .. "/nvim/mason/packages"
+  local cppdbg = mason .. "/cpptools/extension/debugAdapters/bin/OpenDebugAD7"
+
+  dap.adapters.cpptools = {
+    id = "cppdbg",
     type = "executable",
-    command = "gdb",
-    args = { "--interpreter=dap", "--eval-command", "set print pretty on" },
+    command = cppdbg,
   }
 
-  dap.configurations.c = {
+  dap.configurations.cpp = {
     {
-      name = "Launch",
-      type = "gdb",
+      name = "Launch file",
+      type = "cppdbg",
       request = "launch",
       program = function()
         return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
       end,
       cwd = "${workspaceFolder}",
-      stopAtBeginningOfMainSubprogram = false,
-    },
-    {
-      name = "Select and attach to process",
-      type = "gdb",
-      request = "attach",
-      program = function()
-        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-      end,
-      pid = function()
-        local name = vim.fn.input "Executable name (filter): "
-        return require("dap.utils").pick_process { filter = name }
-      end,
-      cwd = "${workspaceFolder}",
+      stopAtEntry = true,
     },
     {
       name = "Attach to gdbserver :1234",
-      type = "gdb",
-      request = "attach",
-      target = "localhost:1234",
+      type = "cppdbg",
+      request = "launch",
+      MIMode = "gdb",
+      miDebuggerServerAddress = "localhost:1234",
+      miDebuggerPath = "/usr/bin/gdb",
+      cwd = "${workspaceFolder}",
       program = function()
         return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
       end,
-      cwd = "${workspaceFolder}",
     },
   }
+
+  dap.configurations.c = dap.configurations.cpp
 
   dapui.setup()
 
