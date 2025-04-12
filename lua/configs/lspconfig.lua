@@ -1,10 +1,17 @@
+dofile(vim.g.base46_cache .. "lsp")
+require("nvchad.lsp").diagnostic_config()
+
 local nvlsp = require "utils.lspconfig"
 local lspconfig = require "lspconfig"
 
--- load defaults i.e lua_lsp
-nvlsp.defaults()
-
 local servers = {
+  lua_ls = {
+    diagnostics = {
+      globals = { "vim" },
+    },
+    maxPreload = 100000,
+    preloadFileSize = 10000,
+  },
   clangd = {
     extraOptions = {
       capabilities = { offsetEncoding = { "utf-8" } },

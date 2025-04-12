@@ -151,4 +151,10 @@ return {
     },
     config = require("configs.dap").config,
   },
+
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = require "configs.lazydev",
+  },
 }
