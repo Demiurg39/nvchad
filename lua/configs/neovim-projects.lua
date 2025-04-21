@@ -16,6 +16,7 @@ M.opts = {
     "~/code/projects/*/*",
     "~/.config/nvim",
     "~/nixflow",
+    "~/Documents/Obsidian Vault/"
   },
   last_session_on_startup = false,
   picker = { type = "telescope" },

@@ -12,6 +12,7 @@ local opts = {
     "javascript",
     "make",
     "markdown",
+    "markdown_inline",
     "nix",
     "nu",
     "norg",

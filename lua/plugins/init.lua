@@ -185,4 +185,17 @@ return {
       "theHamsta/nvim-dap-virtual-text",
     },
   },
+
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    init = require("configs.obsidian").init,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+      "nvim-telescope/telescope.nvim",
+    },
+    opts = require("configs.obsidian").opts,
+  },
 }
