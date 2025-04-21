@@ -86,7 +86,7 @@ return {
 
   {
     "kevinhwang91/nvim-ufo",
-    event = "BufReadPre",
+    event = "BufRead",
     dependencies = { "kevinhwang91/promise-async" },
     config = function()
       require "configs.ufo"
