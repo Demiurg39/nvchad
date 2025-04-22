@@ -189,7 +189,6 @@ return {
   {
     "epwalsh/obsidian.nvim",
     version = "*",
-    init = require("configs.obsidian").init,
     ft = "markdown",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -197,5 +196,26 @@ return {
       "nvim-telescope/telescope.nvim",
     },
     opts = require("configs.obsidian").opts,
+  },
+
+  {
+    "OXY2DEV/markview.nvim",
+    version = "*",
+    ft = "markdown",
+    cmd = { "Markview" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = require("configs.markview").keys,
+    config = require("configs.markview").config,
+  },
+
+  {
+    "tadmccorkle/markdown.nvim",
+    ft = "markdown",
+    opts = {},
+  },
+  {
+    "SCJangra/table-nvim",
+    ft = "markdown",
+    opts = {},
   },
 }

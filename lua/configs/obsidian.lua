@@ -1,14 +1,14 @@
 local M = {}
 
-M.init = function()
-  vim.o.conceallevel = 1
-end
+M.vault = "~/Documents/Obsidian Vault"
 
 M.opts = {
+  ui = { enable = false },
+
   workspaces = {
     {
       name = "main",
-      path = "~/Documents/Obsidian Vault",
+      path = M.vault,
     },
     {
       name = "no-vault",

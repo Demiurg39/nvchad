@@ -6,16 +6,27 @@
 local M = {}
 
 M.base46 = {
-  theme = "rosepine",
+  theme = "flouromachine",
   integrations = {
     "dap",
     "flash",
     "todo",
+    "markview",
   },
 
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
+  },
+
+  hl_add = {
+    -- NOTE: For markview headings (its seems buggy)
+    ["MarkviewHeading1"] = { fg = "black", bg = "red" },
+    ["MarkviewHeading2"] = { fg = "darker_black", bg = "orange" },
+    ["MarkviewHeading3"] = { fg = "black", bg = "yellow" },
+    ["MarkviewHeading4"] = { fg = "darker_black", bg = "green" },
+    ["MarkviewHeading5"] = { fg = "black", bg = "teal" },
+    ["MarkviewHeading6"] = { fg = "darker_black", bg = "purple" },
   },
 }
 
