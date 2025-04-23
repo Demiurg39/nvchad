@@ -23,6 +23,9 @@ M.opts = {
         templates = {
           folder = vim.NIL,
         },
+        daily_notes = {
+          folder = vim.NIL,
+        },
         disable_frontmatter = true,
       },
     },
