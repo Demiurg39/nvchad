@@ -5,7 +5,10 @@ local java_dap_bin = mason
   .. vim.fn.glob("/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true)
 local jar = jdtls .. "/plugins/org.eclipse.equinox.launcher_" .. "*.*.*.v*-*" .. ".jar"
 local jdtls_conf = jdtls .. "/config_linux"
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+
+local root_dir = require("jdtls.setup").find_root { ".git", "mvnw", "gradlew" }
+local project_name = vim.fn.fnamemodify(root_dir, ":t")
+
 local workspace_dir = vim.fn.expand "$XDG_CACHE_HOME" .. "/jdtls/projects/" .. project_name
 
 local config = {
@@ -33,7 +36,7 @@ local config = {
     "-data",
     workspace_dir,
     -- root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
-    root_dir = require("jdtls.setup").find_root { ".git", "mvnw", "gradlew" },
+    root_dir = root_dir,
   },
 }
 
