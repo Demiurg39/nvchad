@@ -1,9 +1,9 @@
 local mason = vim.fn.stdpath "data" .. "/mason/packages"
 
 local jdtls = mason .. "/jdtls"
-local java_dap_bin = mason
-  .. vim.fn.glob("/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true)
-local jar = jdtls .. "/plugins/org.eclipse.equinox.launcher_" .. "*.*.*.v*-*" .. ".jar"
+local java_dap_bin =
+  vim.fn.glob(mason .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true)
+local jar = vim.fn.glob(jdtls .. "/plugins/org.eclipse.equinox.launcher_*.*.*.v*-*.jar", true)
 local jdtls_conf = jdtls .. "/config_linux"
 
 local root_dir = require("jdtls.setup").find_root { ".git", "mvnw", "gradlew" }
@@ -12,6 +12,7 @@ local project_name = vim.fn.fnamemodify(root_dir, ":t")
 local workspace_dir = vim.fn.expand "$XDG_CACHE_HOME" .. "/jdtls/projects/" .. project_name
 
 local config = {
+  on_attach = require("utils.lspconfig").on_attach,
   cmd = {
     "java",
 
@@ -28,7 +29,7 @@ local config = {
     "java.base/java.lang=ALL-UNNAMED",
 
     "-jar",
-    vim.fn.glob(jar, true),
+    jar,
 
     "-configuration",
     jdtls_conf,
@@ -37,6 +38,22 @@ local config = {
     workspace_dir,
     -- root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
     root_dir = root_dir,
+  },
+
+  settings = {
+    java = {
+      configuration = {
+        -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+        -- And search for `interface RuntimeOption`
+        -- The `name` is NOT arbitrary, but must match one of the elements from `enum ExecutionEnvironment` in the link above
+        runtimes = {
+          -- {
+          --   name = "JavaSE-17",
+          --   path = "/usr/lib/jvm/java-17-openjdk/",
+          -- },
+        },
+      },
+    },
   },
 }
 
