@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "flouromachine",
+  theme = "ayu_dark",
   integrations = {
     "dap",
     "flash",
@@ -60,6 +60,8 @@ M.mason = {
     "java-debug-adapter",
     "java-test",
     "jdtls",
+    -- NOTE: typst
+    "tinymist",
   },
 }
 
