@@ -11,6 +11,7 @@ end
 
 map("n", "<leader>|", "<cmd>vsplit<cr>", opts "window: split vertically")
 map("n", "<leader>\\", "<cmd>split<cr>", opts "window: split horizontally")
+map("n", "<leader>w", "<cmd>w<cr>", opts "editor: write changes into file")
 
 -- NOTE: tabufline
 map("n", "<A-i>", function()
@@ -50,6 +51,28 @@ map("n", "<A-q>", function()
   end
 end, opts "buffer: close buffer")
 
+map("n", "<S-A-q>", function()
+  local wins = vim.api.nvim_tabpage_list_wins(0)
+  local non_floating_wins = 0
+
+  -- Count non-floating windows
+  for _, win in ipairs(wins) do
+    local config = vim.api.nvim_win_get_config(win)
+    if not config.relative or config.relative == "" then
+      non_floating_wins = non_floating_wins + 1
+    end
+  end
+
+  -- Close window or buffer based on the number of non-floating windows
+  if non_floating_wins > 1 then
+    vim.cmd "close!"
+  elseif #vim.fn.getbufinfo { buflisted = 1 } > 1 then
+    vim.cmd "bdelete!" -- Delete the buffer if more than one buffer is open
+  else
+    vim.cmd "quit" -- Quit Neovim if it's the last buffer
+  end
+end, opts "buffer: force close buffer")
+
 for i = 1, 9, 1 do
   map("n", string.format("<A-%s>", i), function()
     vim.api.nvim_set_current_buf(vim.t.bufs[i])
@@ -75,6 +98,7 @@ map("v", ">", ">gv", opts "indent: decrement")
 map("v", "<A-j>", ":m '>+1<cr>gv=gv", opts "move line down")
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", opts "move line up")
 
+-- TODO: make chadvim terminal working
 -- NOTE: Term
 
 -- map ()
