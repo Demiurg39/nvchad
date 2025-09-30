@@ -3,6 +3,7 @@ require("nvchad.lsp").diagnostic_config()
 
 local nvlsp = require "utils.lspconfig"
 local lspconfig = require "lspconfig"
+local hostname = os.execute "hostname"
 
 local servers = {
   lua_ls = {
@@ -33,23 +34,37 @@ local servers = {
   },
   nixd = {
     cmd = { "nixd" },
-
     settings = {
-      inlay_hints = true,
-      nixpkgs = {
-        expr = "import <nixpkgs> { }",
-      },
-      formatting = {
-        command = { "nixfmt" },
-      },
-      options = {
-        nixos = {
-          expr = '(builtins.getFlake (builtins.getEnv "FLAKE")).nixosConfigurations.asura.options',
+      nixd = {
+        inlay_hints = true,
+        nixpkgs = {
+          expr = "import <nixpkgs> {}",
         },
-        home_manager = {
-          expr = '(builtins.getFlake (builtins.getEnv "FLAKE")).nixosConfigurations.asura.options.home-manager.users.value.demi',
+        formatting = {
+          command = { "alejandra" },
+        },
+        options = {
+          nixos = {
+            expr = string.format(
+              '(builtins.getFlake (builtins.getEnv "FLAKE")).nixosConfigurations.%s.options',
+              hostname
+            ),
+          },
+          home_manager = {
+            expr = string.format(
+              '(builtins.getFlake (builtins.getEnv "FLAKE")).nixosConfigurations.%s.options.home-manager.users.type.getSubOptions []',
+              hostname
+            ),
+          },
         },
       },
+    },
+  },
+  tinymist = {
+    settings = {
+      formatterMode = "",
+      exportPDF = "",
+      semantic_tokens = "disable",
     },
   },
 }
