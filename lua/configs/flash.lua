@@ -81,18 +81,19 @@ M.keys = {
     function()
       require("flash").treesitter()
     end,
-    desc = "Flash Treesitter",
+    desc = "Flash: Treesitter",
   },
-  {
-    "#",
-    mode = { "n", "x", "o" },
-    function()
-      require("flash").jump {
-        pattern = vim.fn.expand "<cword>",
-      }
-    end,
-    desc = "Flash: Initialize flash with the word under the cursor",
-  },
+  -- TODO: need some changes, not working as expected
+  -- {
+  --   "#",
+  --   mode = { "n", "x", "o" },
+  --   function()
+  --     require("flash").jump {
+  --       pattern = vim.fn.expand "<cword>",
+  --     }
+  --   end,
+  --   desc = "Flash: Initialize flash with the word under the cursor",
+  -- },
   {
     "gp",
     mode = "o",
