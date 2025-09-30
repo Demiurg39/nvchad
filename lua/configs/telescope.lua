@@ -53,7 +53,7 @@ return function(conf)
   map("n", "<leader>sm", "<cmd>Telescope man_pages<cr>", opts "Telescope: Man pages")
   map("n", "<leader>s/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts "Telescope: Search in current buffer")
   map("n", "<leader>s:", "<cmd>Telescope commands<cr>", opts "Telescope: Search for commands")
-  map("n", "<leader>st", "<cmd>lua require('nvchad.themes').open() <cr>", opts "Telescope: Nvchad themes")
+  map("n", "<leader>th", "<cmd>lua require('nvchad.themes').open() <cr>", opts "Telescope: Nvchad themes")
 
   -- NOTE: etc
   map("n", "<leader>pt", "<cmd>Telescope terms<cr>", opts "Telescope: Pick hidden term")
