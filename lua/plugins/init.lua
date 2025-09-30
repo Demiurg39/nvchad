@@ -96,8 +96,8 @@ return {
 
   {
     "folke/flash.nvim",
-    init = require("configs.flash").init,
     event = "VeryLazy",
+    init = require("configs.flash").init,
     keys = require("configs.flash").keys,
     opts = require("configs.flash").opts,
   },
@@ -110,8 +110,8 @@ return {
 
   {
     "y3owk1n/undo-glow.nvim",
+    event = "VeryLazy",
     init = require("configs.undo-glow").init,
-    event = { "VeryLazy" },
     keys = require("configs.undo-glow").keys,
     opts = require("configs.undo-glow").opts,
   },
@@ -204,19 +204,12 @@ return {
     version = "*",
     ft = "markdown",
     cmd = { "Markview" },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "tadmccorkle/markdown.nvim",
+      "SCJangra/table-nvim",
+    },
     keys = require("configs.markview").keys,
     config = require("configs.markview").config,
-  },
-
-  {
-    "tadmccorkle/markdown.nvim",
-    ft = "markdown",
-    opts = {},
-  },
-  {
-    "SCJangra/table-nvim",
-    ft = "markdown",
-    opts = {},
   },
 }
