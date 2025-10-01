@@ -5,7 +5,9 @@ local options = {
     c = { "clang_format" },
     cpp = { "clang_format" },
     java = { "clang_format" },
+    python = { "black" },
     _ = {
+      "prettierd",
       "squeeze_blanks",
       "trim_whitespace",
       "trim_newlines",

@@ -62,9 +62,28 @@ local servers = {
   },
   tinymist = {
     settings = {
-      formatterMode = "",
-      exportPDF = "",
+      formatterMode = "typstyle",
+      exportPDF = "onSave",
       semantic_tokens = "disable",
+    },
+  },
+
+  ruff = {
+    settings = {
+      configuration = {},
+    },
+  },
+
+  pyright = {
+    settings = {
+      pyright = {
+        disableOrganizeImports = true,
+      },
+      python = {
+        analysis = {
+          ignore = { "*" },
+        },
+      },
     },
   },
 }
