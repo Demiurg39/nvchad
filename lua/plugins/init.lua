@@ -212,4 +212,14 @@ return {
     keys = require("configs.markview").keys,
     config = require("configs.markview").config,
   },
+
+  {
+    "chomosuke/typst-preview.nvim",
+    ft = { "typ", "typst" },
+    opts = {
+      dependencies_bin = {
+        ["tinymist"] = "tinymist",
+      },
+    },
+  },
 }
