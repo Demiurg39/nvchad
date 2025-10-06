@@ -4,6 +4,7 @@ local jdtls = mason .. "/jdtls"
 local java_dap_bin = vim.fn.glob(mason .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true)
 local jar = vim.fn.glob(jdtls .. "/plugins/org.eclipse.equinox.launcher_*.v*.jar", true)
 local jdtls_conf = jdtls .. "/config_linux"
+local lombok_jar = jdtls .. "/lombok.jar"
 
 local root_dir = require("jdtls.setup").find_root { ".git", "mvnw", "gradlew" }
 local project_name = vim.fn.fnamemodify(root_dir, ":t")
@@ -26,6 +27,8 @@ local config = {
     "java.base/java.util=ALL-UNNAMED",
     "--add-opens",
     "java.base/java.lang=ALL-UNNAMED",
+
+    "-javaagent:" .. lombok_jar,
 
     "-jar",
     jar,
